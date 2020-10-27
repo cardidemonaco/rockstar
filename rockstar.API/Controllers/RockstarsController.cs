@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 using rockstar.Data;
@@ -24,9 +25,9 @@ namespace rockstar.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Artist> Get()
+        public IEnumerable<Person> Get()
         {
-            return _context.Artists;
+            return _context.People;
         }
     }
 }

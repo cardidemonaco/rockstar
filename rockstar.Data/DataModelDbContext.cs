@@ -26,6 +26,8 @@ namespace rockstar.Data
         protected override void OnModelCreating(ModelBuilder mb)
         {
             // SEED DATA //
+
+            //Artists...
             mb.Entity<Artist>().HasData(new Artist
             {
                 ArtistID = 1,
@@ -45,6 +47,35 @@ namespace rockstar.Data
                 ArtistName = "Metallica",
                 ArtistCareerStart = new DateTimeOffset(1981, 1, 1, 0, 0, 0, TimeSpan.Zero)
             });
+
+            //People...
+            mb.Entity<Person>().HasData(new Person
+            {
+                PersonID = 1,
+                PersonNameFirst = "Neil",
+                PersonNameLast = "Peart",
+                PersonBirthdate = new DateTime(1952, 9, 12),
+                PersonDeathDate = new DateTime(2020, 1, 7)
+            });
+            mb.Entity<Person>().HasData(new Person
+            {
+                PersonID = 2,
+                PersonNameFirst = "Geddy",
+                PersonNameLast = "Lee",
+                PersonBirthdate = new DateTime(1953, 7, 29)
+            });
+            mb.Entity<Person>().HasData(new Person
+            {
+                PersonID = 3,
+                PersonNameFirst = "Alex",
+                PersonNameLast = "Lifeson",
+                PersonBirthdate = new DateTime(1953, 8, 27)
+            });
+
+            //Attach rockstars to Artists...
+            mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 1, ArtistID = 1, PersonID = 1 }); //Rush / Neil
+            mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 2, ArtistID = 1, PersonID = 2 }); //Rush / Geddy
+            mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 3, ArtistID = 1, PersonID = 3 }); //Rush / Alex
         }
 
         // ENTITIES //

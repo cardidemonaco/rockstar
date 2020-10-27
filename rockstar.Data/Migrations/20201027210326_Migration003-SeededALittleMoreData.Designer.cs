@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rockstar.Data;
 
 namespace rockstar.Data.Migrations
 {
     [DbContext(typeof(DataModelDbContext))]
-    partial class DataModelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201027210326_Migration003-SeededALittleMoreData")]
+    partial class Migration003SeededALittleMoreData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
