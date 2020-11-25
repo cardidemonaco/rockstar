@@ -43,5 +43,12 @@ namespace rockstar.API.Controllers
                                   .Where(x => x.Artist.ArtistName == "Rush")
                                   .Select(x => x.Person).ToListAsync();
         }
+
+        [HttpGet]
+        [Route("{artist}")]
+        public async Task<IEnumerable<Artist>> Get(string artist)
+        {
+            return await _context.Artists.Where(x => x.ArtistName == artist).ToListAsync();
+        }
     }
 }
