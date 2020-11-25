@@ -20,5 +20,7 @@ namespace rockstar.Data.Entities
         public DateTimeOffset? ArtistCareerStart { get; set; }
         [Display(Name = "End of Career")]
         public DateTimeOffset? ArtistCareerEnd { get; set; }
+        public ICollection<PersonArtist> ArtistMembers { get; set; }
+        public ICollection<Album> Albums { get; set; }
     }
 }

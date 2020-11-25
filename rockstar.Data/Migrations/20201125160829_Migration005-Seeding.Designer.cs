@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rockstar.Data;
 
 namespace rockstar.Data.Migrations
 {
     [DbContext(typeof(DataModelDbContext))]
-    partial class DataModelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201125160829_Migration005-Seeding")]
+    partial class Migration005Seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,34 +231,6 @@ namespace rockstar.Data.Migrations
                             PersonGender = 0,
                             PersonNameFirst = "Travis",
                             PersonNameLast = "Barker"
-                        },
-                        new
-                        {
-                            PersonID = 5,
-                            PersonGender = 0,
-                            PersonNameFirst = "Lars",
-                            PersonNameLast = "Ulrich"
-                        },
-                        new
-                        {
-                            PersonID = 6,
-                            PersonGender = 0,
-                            PersonNameFirst = "James",
-                            PersonNameLast = "Hetfield"
-                        },
-                        new
-                        {
-                            PersonID = 7,
-                            PersonGender = 0,
-                            PersonNameFirst = "Kirk",
-                            PersonNameLast = "Hammett"
-                        },
-                        new
-                        {
-                            PersonID = 8,
-                            PersonGender = 0,
-                            PersonNameFirst = "Robert",
-                            PersonNameLast = "Trujillo"
                         });
                 });
 
@@ -305,30 +279,6 @@ namespace rockstar.Data.Migrations
                             PersonArtistID = 4,
                             ArtistID = 2,
                             PersonID = 4
-                        },
-                        new
-                        {
-                            PersonArtistID = 5,
-                            ArtistID = 3,
-                            PersonID = 5
-                        },
-                        new
-                        {
-                            PersonArtistID = 6,
-                            ArtistID = 3,
-                            PersonID = 6
-                        },
-                        new
-                        {
-                            PersonArtistID = 7,
-                            ArtistID = 3,
-                            PersonID = 7
-                        },
-                        new
-                        {
-                            PersonArtistID = 8,
-                            ArtistID = 3,
-                            PersonID = 8
                         });
                 });
 
@@ -357,153 +307,11 @@ namespace rockstar.Data.Migrations
                     b.HasIndex("AlbumID");
 
                     b.ToTable("Songs");
-
-                    b.HasData(
-                        new
-                        {
-                            SongID = 1,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Enter Sandman"
-                        },
-                        new
-                        {
-                            SongID = 2,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Sad But True"
-                        },
-                        new
-                        {
-                            SongID = 3,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Holier Than Thou"
-                        },
-                        new
-                        {
-                            SongID = 4,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "The Unforgiven"
-                        },
-                        new
-                        {
-                            SongID = 5,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Wherever I May Roam"
-                        },
-                        new
-                        {
-                            SongID = 6,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Don't Tread On Me"
-                        },
-                        new
-                        {
-                            SongID = 7,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Through the Never"
-                        },
-                        new
-                        {
-                            SongID = 8,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Nothing Else Matters"
-                        },
-                        new
-                        {
-                            SongID = 9,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "Of Wolf and Man"
-                        },
-                        new
-                        {
-                            SongID = 10,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "The God That Failed"
-                        },
-                        new
-                        {
-                            SongID = 11,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "My Friend of Misery"
-                        },
-                        new
-                        {
-                            SongID = 12,
-                            AlbumID = 5,
-                            SongLength = 0,
-                            SongName = "The Struggle Within"
-                        },
-                        new
-                        {
-                            SongID = 13,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Battery"
-                        },
-                        new
-                        {
-                            SongID = 14,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Master of Puppets"
-                        },
-                        new
-                        {
-                            SongID = 15,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "The Thing That Should Not Be"
-                        },
-                        new
-                        {
-                            SongID = 16,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Welcome Home (Sanitarium)"
-                        },
-                        new
-                        {
-                            SongID = 17,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Disposable Heroes"
-                        },
-                        new
-                        {
-                            SongID = 18,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Leper Messiah"
-                        },
-                        new
-                        {
-                            SongID = 19,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Orion"
-                        },
-                        new
-                        {
-                            SongID = 20,
-                            AlbumID = 3,
-                            SongLength = 0,
-                            SongName = "Damage, Inc."
-                        });
                 });
 
             modelBuilder.Entity("rockstar.Data.Entities.Album", b =>
                 {
-                    b.HasOne("rockstar.Data.Entities.Artist", null)
+                    b.HasOne("rockstar.Data.Entities.Artist", "Artist")
                         .WithMany("Albums")
                         .HasForeignKey("ArtistID")
                         .OnDelete(DeleteBehavior.Cascade)

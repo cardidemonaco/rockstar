@@ -22,14 +22,16 @@ namespace rockstar.Data.Entities
         [Required]
         [Display(Name = "Artist")]
         public int ArtistID { get; set; } //FK
-        public Artist Artist { get; set; }
+        //public Artist Artist { get; set; }
 
-        public string AlbumWithArtist
-        {
-            get
-            {
-                return $"{AlbumName} - {Artist.ArtistName}";
-            }
-        }
+        //public string AlbumWithArtist
+        //{
+        //    get
+        //    {
+        //        return $"{AlbumName} - {Artist.ArtistName}";
+        //    }
+        //}
+
+        public ICollection<Song> Songs { get; set; }
     }
 }

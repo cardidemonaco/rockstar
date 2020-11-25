@@ -80,6 +80,8 @@ namespace rockstar.Data.Entities
                 }
             }
         }
+
+        //public ICollection<PersonArtist> PersonBands { get; set; }
         public string PersonDetails { get; set; }
     }
 }

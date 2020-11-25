@@ -15,7 +15,7 @@ namespace rockstar.API.Controllers
     [Route("[controller]")]
     public class RockstarsController : ControllerBase
     {
-        public readonly DataModelDbContext _context;
+        private readonly DataModelDbContext _context;
         private readonly ILogger<RockstarsController> _logger;
 
         public RockstarsController(DataModelDbContext context, ILogger<RockstarsController> logger)
@@ -29,26 +29,29 @@ namespace rockstar.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Person> Get()
+        public IEnumerable<Artist> Get()
         {
-            return _context.People;
+            return _context.Artists;
         }
 
         [HttpGet]
         [Route("rush")]
-        public async Task<IEnumerable<Person>> GetRush()
+        public async Task<IEnumerable<Artist>> GetRush()
         {
-            return await _context.PersonArtists.Include(x => x.Person)
-                                  .Include(x => x.Artist)
-                                  .Where(x => x.Artist.ArtistName == "Rush")
-                                  .Select(x => x.Person).ToListAsync();
+            return await _context.Artists//.Include(x => x.ArtistMembers)
+                                         //.ThenInclude(x => x.Person)
+                                         .Where(x => x.ArtistName == "Rush")
+                                         .ToListAsync();
         }
 
         [HttpGet]
         [Route("{artist}")]
-        public async Task<IEnumerable<Artist>> Get(string artist)
+        public async Task<IEnumerable<Artist>> Get(string artist = "Metallica")
         {
-            return await _context.Artists.Where(x => x.ArtistName == artist).ToListAsync();
+            return await _context.Artists.Where(x => x.ArtistName == artist)
+                                         .Include(x => x.Albums).ThenInclude(x => x.Songs)
+                                         .Select(x => x)
+                                         .ToListAsync();
         }
     }
 }

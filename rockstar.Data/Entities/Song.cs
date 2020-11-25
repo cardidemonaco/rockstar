@@ -20,6 +20,6 @@ namespace rockstar.Data.Entities
         [Required]
         [Display(Name = "Album")]
         public int AlbumID { get; set; }
-        public Album Album { get; set; }
+        //public Album Album { get; set; }
     }
 }
