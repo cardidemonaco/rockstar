@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using rockstar.Data;
 
 namespace rockstar.API
@@ -31,6 +32,15 @@ namespace rockstar.API
 
             services.AddDbContext<DataModelDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddSwaggerGen(c =>
+            {
+                //Turn on Open API doc generation using Swashbuckle
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RockstarApi", Version = "v1" });
+
+                //Read the XML doc comments into the Open API doc as documentation
+                //... //Get this from Brady Gaster's GitHub repo
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,14 +49,20 @@ namespace rockstar.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                //Customize the Swagger URL...
+                app.UseSwagger(c =>
+                {
+                    c.RouteTemplate = "swagger/{documentName}/swagger.json";
+                });
+
+                //Turn on the nice Swagger UI page...
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RockstarApi"));
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

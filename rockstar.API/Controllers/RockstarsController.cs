@@ -31,7 +31,7 @@ namespace rockstar.API.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/rush")]
+        [Route("rush")]
         public async Task<IEnumerable<Person>> GetRush()
         {
             return await _context.PersonArtists.Include(x => x.Person)
