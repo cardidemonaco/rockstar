@@ -24,6 +24,10 @@ namespace rockstar.API.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Get all rockstars
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<Person> Get()
         {
