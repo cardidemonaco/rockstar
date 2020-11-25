@@ -71,11 +71,19 @@ namespace rockstar.Data
                 PersonNameLast = "Lifeson",
                 PersonBirthdate = new DateTime(1953, 8, 27)
             });
+            mb.Entity<Person>().HasData(new Person
+            {
+                PersonID = 4,
+                PersonNameFirst = "Travis",
+                PersonNameLast = "Barker",
+                PersonBirthdate = new DateTime(1975, 11, 14)
+            });
 
             //Attach rockstars to Artists...
             mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 1, ArtistID = 1, PersonID = 1 }); //Rush / Neil
             mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 2, ArtistID = 1, PersonID = 2 }); //Rush / Geddy
             mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 3, ArtistID = 1, PersonID = 3 }); //Rush / Alex
+            mb.Entity<PersonArtist>().HasData(new PersonArtist { PersonArtistID = 4, ArtistID = 2, PersonID = 4 }); //blink 182 / Travis
         }
 
         // ENTITIES //

@@ -29,5 +29,15 @@ namespace rockstar.API.Controllers
         {
             return _context.People;
         }
+
+        [HttpGet]
+        [Route("[controller]/rush")]
+        public async Task<IEnumerable<Person>> GetRush()
+        {
+            return await _context.PersonArtists.Include(x => x.Person)
+                                  .Include(x => x.Artist)
+                                  .Where(x => x.Artist.ArtistName == "Rush")
+                                  .Select(x => x.Person).ToListAsync();
+        }
     }
 }
