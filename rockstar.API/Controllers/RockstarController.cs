@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -46,10 +47,15 @@ namespace rockstar.API.Controllers
 
         [HttpGet]
         [Route("{person}")]
-        public IEnumerable<Person> Get(string person = "Travis Barker")
+        public IActionResult Get(string person = "Travis Barker")
         {
             var people = _context.People.ToListAsync();
-            return people.Result.Where(x => x.PersonNameFull == person).ToList();
+            var peopleSearch = people.Result.Where(x => x.PersonNameFull == person).ToList(); //DB query actually made here
+
+            if (peopleSearch.Count > 0)
+                return Ok(peopleSearch);
+            else
+                return NotFound();
         }
     }
 }

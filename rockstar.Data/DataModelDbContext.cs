@@ -161,6 +161,10 @@ namespace rockstar.Data
             mb.Entity<Song>().HasData(new Song { SongID = 18, SongName = "Leper Messiah", AlbumID = 3 });
             mb.Entity<Song>().HasData(new Song { SongID = 19, SongName = "Orion", AlbumID = 3 });
             mb.Entity<Song>().HasData(new Song { SongID = 20, SongName = "Damage, Inc.", AlbumID = 3 });
+
+
+            // GET MORE SEED DATA FROM A SPREADSHEET //
+            //TO-DO
         }
 
         // ENTITIES //
