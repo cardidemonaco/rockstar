@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>rockstar.API</name>
+    </assembly>
+    <members>
+        <member name="M:rockstar.API.Controllers.RockstarController.Get">
+            <summary>
+            Get all rockstars
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:rockstar.API.Controllers.RockstarsController.Get">
+            <summary>
+            Get all rockstars
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

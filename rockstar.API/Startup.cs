@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -35,11 +36,20 @@ namespace rockstar.API
 
             services.AddSwaggerGen(c =>
             {
+                //c.SwaggerDoc("v1",
+                //    new Info
+                //    {
+                //        Title = "My API - V1",
+                //        Version = "v1"
+                //    }
+                //);
+
                 //Turn on Open API doc generation using Swashbuckle
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RockstarApi", Version = "v1" });
 
                 //Read the XML doc comments into the Open API doc as documentation
-                //... //Get this from Brady Gaster's GitHub repo
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "rockstar.API.xml");
+                c.IncludeXmlComments(filePath);
             });
         }
 
